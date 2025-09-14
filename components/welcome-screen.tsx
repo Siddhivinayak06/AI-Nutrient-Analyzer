@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Leaf, Brain, Heart, Sparkles } from "lucide-react"
-import OnboardingFlow from "@/components/OnboardingFlow";
+import OnboardingFlow from "@/components/onboardingFlow";
 
 export function WelcomeScreen() {
   const [showOnboarding, setShowOnboarding] = useState(false)
