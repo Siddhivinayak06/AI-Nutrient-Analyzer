@@ -25,6 +25,7 @@ import {
 } from "lucide-react"
 import { DietPlanGenerator } from "./diet-plan-generator"
 import { useMlAnalysis } from "@/hooks/use-ml-analysis"
+import { useProfile } from "./ProfileContext"
 
 interface NutrientData {
   name: string
@@ -156,25 +157,27 @@ export function NutrientAnalysisDashboard() {
   const [showDietPlan, setShowDietPlan] = useState(false)
   const [mlPredictions, setMlPredictions] = useState<any>(null)
   const [isAnalyzing, setIsAnalyzing] = useState(false)
-  const { analyze, loading, error, result } = useMlAnalysis()
+  const { analyze } = useMlAnalysis()
+  const { profile } = useProfile()
 
   useEffect(() => {
     runMlAnalysis()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const runMlAnalysis = async () => {
     setIsAnalyzing(true)
     try {
       const analysisParams = {
-        calories: 1850,
+        calories: 1850, // can later be calculated from logged meals
         protein: 65,
         carbs: 230,
         fat: 62,
         iron: 12,
         vitaminC: 45,
-        age: 32,
-        gender: 0, // 0 for female, 1 for male
-        dosha: "VATA",
+        age: Number(profile?.age) || 32,
+        gender: profile?.gender === "male" ? 1 : 0,
+        dosha: profile?.dosha || "VATA",
       }
 
       const predictions = await analyze(analysisParams)

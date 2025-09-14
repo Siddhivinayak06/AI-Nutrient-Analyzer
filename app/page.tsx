@@ -5,6 +5,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { NutrientAnalysisDashboard } from "@/components/nutrient-analysis-dashboard"
 import { DietPlanGenerator } from "@/components/diet-plan-generator"
 import { ProgressTrackingSystem } from "@/components/progress-tracking-system"
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -18,13 +19,14 @@ export default function HomePage() {
         </div>
 
         <Tabs defaultValue="dashboard" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full grid-cols-7">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="analyzer">Meal Analyzer</TabsTrigger>
             <TabsTrigger value="tracker">Live Tracker</TabsTrigger>
             <TabsTrigger value="suggestions">Smart Suggestions</TabsTrigger>
             <TabsTrigger value="diet-plan">Diet Plan</TabsTrigger>
             <TabsTrigger value="progress">Progress</TabsTrigger>
+            <TabsTrigger value="profile">Profile</TabsTrigger>
           </TabsList>
 
           <TabsContent value="dashboard">
@@ -50,8 +52,11 @@ export default function HomePage() {
           <TabsContent value="progress">
             <ProgressTrackingSystem />
           </TabsContent>
+          <TabsContent value="profile">
+            <Link href="/profile" className="underline text-primary">Go to Profile Setup</Link>
+          </TabsContent>
         </Tabs>
       </div>
     </div>
-  )
+  );
 }

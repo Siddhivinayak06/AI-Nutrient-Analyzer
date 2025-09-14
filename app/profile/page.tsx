@@ -1,5 +1,9 @@
-import { OnboardingFlow } from "@/components/onboarding/onboarding-flow"
+// app/profile/page.tsx
+"use client";
+
+import OnboardingFlow from "@/components/OnboardingFlow";
+
 
 export default function ProfilePage() {
-  return <OnboardingFlow />
+  return <OnboardingFlow />;
 }
