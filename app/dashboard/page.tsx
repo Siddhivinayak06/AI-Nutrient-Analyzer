@@ -1,4 +1,4 @@
-vimport { RealTimeMealAnalyzer } from "@/components/real-time-meal-analyzer"
+import { RealTimeMealAnalyzer } from "@/components/real-time-meal-analyzer"
 import { LiveNutritionTracker } from "@/components/live-nutrition-tracker"
 import { SmartMealSuggestions } from "@/components/smart-meal-suggestions"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
